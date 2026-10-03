@@ -1036,7 +1036,7 @@ section[id]{scroll-margin-top:64px}
 .hero{min-height:min(calc(100svh - 44px),940px);padding:56px 0 64px}
 .hero .hero-in{display:flex;flex-direction:column;align-items:flex-start}
 .hero .hero-in>*{max-width:760px}
-.hero-ph img{object-position:0% 50%}
+.hero-ph img{object-position:50% 50%}
 .logo-hero{height:clamp(84px,8.6vw,132px);max-width:min(560px,100%);margin:0 0 30px}
 .hero-pre{
   display:flex;align-items:center;gap:14px;margin:0 0 20px;
@@ -1134,7 +1134,12 @@ section[id]{scroll-margin-top:64px}
   .prof{grid-template-columns:1fr}
   .quem-foto{margin-right:-32px;aspect-ratio:4/3;min-height:0}
   .split.jantar-grid{grid-template-columns:1fr}
-  .hero-ph img{object-position:30% 50%}
+  .hero-ph img{object-position:40% 50%}
+}
+/* faixa estreita: a foto é larga demais para caber a Sirlei inteira aqui,
+   então ela sai de quadro e fica só o palco, em vez de um pedaço cortado. */
+@media (max-width:860px){
+  .hero-ph img{object-position:10% 50%}
 }
 @media (max-width:640px){
   .topbar{font-size:9.6px;letter-spacing:.12em;gap:4px 12px;padding:7px 10px}
