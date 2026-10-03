@@ -246,7 +246,10 @@ em{font-style:normal;color:var(--gold-lt)}
 .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pl 2.4s infinite}
 @keyframes pl{0%{box-shadow:0 0 0 0 rgba(201,162,39,.65)}70%{box-shadow:0 0 0 10px rgba(201,162,39,0)}100%{box-shadow:0 0 0 0 rgba(201,162,39,0)}}
 
-.hero .duo img{filter:grayscale(.88) contrast(1.1) brightness(1.04)}
+/* foto do hero em cor natural: tira a dessaturação e a camada dourada do .duo */
+.hero .duo img{filter:saturate(.94) contrast(1.04) brightness(1.02)}
+.hero .duo:hover img{filter:saturate(.94) contrast(1.04) brightness(1.02)}
+.hero .duo::after{display:none}
 .hero h1{margin-bottom:26px}
 .claim{
   border-left:2px solid var(--gold);padding:2px 0 2px 24px;margin:0 0 34px;
