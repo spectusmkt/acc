@@ -754,48 +754,14 @@ em{font-style:normal;color:var(--gold-lt)}
 .nums.n3{grid-template-columns:repeat(3,1fr)}
 .panel .nums.n3{border-bottom:0}
 
-/* dobra final: dados do evento + cadastro que grava na planilha e abre o WhatsApp */
+/* dobra final: dados do evento + chamada para o formulário */
+.chamada{max-width:620px;margin:0 auto}
+.chamada .tk-f{margin-top:16px}
 .meta-final{max-width:860px;justify-content:center;text-align:left;margin-bottom:56px}
-.cadastro{
-  max-width:560px;margin:0 auto;padding:46px 40px 40px;border-radius:18px;text-align:left;
-  box-shadow:inset 0 0 0 1px var(--line-gold);
-  background:radial-gradient(ellipse 90% 60% at 50% 0%,rgba(201,162,39,.14),transparent 70%),rgba(8,7,10,.82);
-}
-.cadastro h3,.cadastro>.body{text-align:center}
-.form-lead{display:grid;gap:16px}
-.form-lead label{display:grid;gap:8px}
-.form-lead label span{font-family:'Jost',sans-serif;font-size:10.8px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
-.form-lead input,.form-lead select{
-  width:100%;font:inherit;font-size:16px;font-weight:400;color:var(--text);
-  background:rgba(255,255,255,.04);border:0;border-radius:12px;padding:15px 16px;
-  box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .3s;
-}
-.form-lead select{appearance:none;-webkit-appearance:none;cursor:pointer;
-  background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);
-  background-position:calc(100% - 22px) 52%,calc(100% - 16px) 52%;background-size:6px 6px;background-repeat:no-repeat;padding-right:44px}
-.form-lead select option{background:var(--ink-2);color:var(--text)}
-.form-lead input::placeholder{color:#6E6A63}
-.form-lead input:focus,.form-lead select:focus{outline:0;box-shadow:inset 0 0 0 1.5px var(--gold)}
-.form-lead input[aria-invalid="true"]{box-shadow:inset 0 0 0 1.5px #D4665C}
-.form-lead .btn{margin-top:10px}
-.form-lead .btn[disabled]{opacity:.6;pointer-events:none}
-.form-erro{margin:0;font-size:15px;color:#E09891}
-
-/* formulário do Hero: compacto, campos em duas colunas */
-.hero-form{width:100%;max-width:640px;margin:30px 0 0;padding:26px 26px 22px;border-radius:18px;
-  background:rgba(8,7,10,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  box-shadow:inset 0 0 0 1px var(--line-gold)}
-.hero-form .form-lead{grid-template-columns:1fr 1fr;gap:12px}
-.hero-form .form-lead label span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.hero-form .form-lead input,.hero-form .form-lead select{padding:14px 15px;font-size:15.5px}
-.hero-form .form-erro,.hero-form .btn{grid-column:1/-1}
-.hero-form .btn{margin-top:4px}
-.hero-form-t{font-size:clamp(1.05rem,1.5vw,1.2rem);font-weight:600;margin:0 0 16px;color:var(--text)}
-.hero-form .tk-f{margin-top:12px}
 .hero-data{display:flex;flex-wrap:wrap;gap:10px 26px;margin:0;font-family:'Jost',sans-serif;font-weight:500;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-pale)}
 .hero-data span{display:inline-flex;align-items:center;gap:9px}
 .hero-data svg{width:17px;height:17px;fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.hero .hero-form{margin-top:24px}
+.hero .acts{margin-top:28px}
 .hero .logo-hero{height:clamp(70px,6.6vw,104px);margin-bottom:24px}
 
 /* identificação */
@@ -1002,7 +968,6 @@ em{font-style:normal;color:var(--gold-lt)}
   .contraste{grid-template-columns:1fr}
   .jornada{grid-template-columns:1fr;max-width:520px}
   .jornada::before{top:40px;bottom:40px;left:50%;right:auto;border-top:0;border-left:1px dashed var(--line-gold)}
-  .cadastro{padding:36px 22px 30px}
   .meta-final{flex-wrap:wrap}
   .meta-final div{flex:1 1 45%;padding:14px 0;border-right:0}
   .nums div{border-bottom:1px solid var(--line)}
@@ -1078,9 +1043,6 @@ em{font-style:normal;color:var(--gold-lt)}
   .meta div:last-child{border-right:0;border-bottom:0;padding-right:0}
   .meta div:nth-last-child(2){border-bottom:0}
   .meta-final{grid-template-columns:1fr}
-  .hero-form{padding:20px 16px 16px;text-align:left}
-  .hero-form .form-lead{grid-template-columns:1fr}
-  .hero-form-t{text-align:center}
   .hero-data{justify-content:center;font-size:12px;letter-spacing:.14em;gap:8px 20px}
   .divisor{gap:0;margin:48px auto 44px}
   .divisor::before,.divisor::after{display:none}
@@ -1162,7 +1124,7 @@ section[id]{scroll-margin-top:64px}
   text-transform:uppercase;color:var(--gold-lt);line-height:1.5;
 }
 .hero-pre::before{content:"";flex:0 0 34px;height:1px;background:var(--gold)}
-.hero h1{font-size:clamp(1.8rem,3.4vw,3rem);line-height:1.08;letter-spacing:-.035em;margin:0 0 22px;text-wrap:balance;max-width:720px}
+.hero h1{font-size:clamp(1.6rem,2.6vw,2.35rem);line-height:1.08;letter-spacing:-.035em;margin:0 0 22px;text-wrap:balance;max-width:720px}
 .hero-sub{font-size:clamp(1.06rem,1.4vw,1.24rem);color:var(--text-2);line-height:1.6;margin:0 0 30px;max-width:610px;text-wrap:pretty}
 .hero-sub strong{color:var(--gold-pale);font-weight:600}
 .hero-auth{
@@ -1344,26 +1306,12 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
       <span><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Cascavel – PR</span>
     </p>
 
-    <div class="hero-form" id="cadastro">
-      <p class="hero-form-t">Quer garantir sua participação?</p>
-      <form class="form-lead" data-origem="Hero" novalidate>
-        <label><span>Nome</span><input type="text" name="nome" autocomplete="name" required placeholder="Seu nome"></label>
-        <label><span>WhatsApp</span><input type="tel" name="whatsapp" autocomplete="tel" inputmode="tel" required placeholder="WhatsApp com DDD"></label>
-        <label><span>E-mail</span><input type="email" name="email" autocomplete="email" required placeholder="Seu e-mail"></label>
-        <label><span>Ingresso de interesse</span>
-          <select name="ingresso">
-            <option value="Ainda não sei">Ingresso: ainda não sei</option>
-            <option value="Ingresso Imersão">Ingresso Imersão</option>
-            <option value="Ingresso VIP">Ingresso VIP</option>
-          </select>
-        </label>
-        <p class="form-erro" role="alert" hidden></p>
-        <button type="submit" class="btn btn-gold btn-wide">
-          Quero receber as informações no WhatsApp
-          <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-        </button>
-      </form>
-      <p class="tk-f">O cadastro é gratuito e não representa a reserva do ingresso.</p>
+    <div class="acts">
+      <a href="https://typebot.co/imers-o-a-chave-da-comunica-o-ok6jkwq" class="btn btn-gold auto js-form" data-origem="Hero">
+        Quero saber como participar
+        <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#metodo" class="btn btn-line auto">Conhecer o método</a>
     </div>
   </div>
 </section>
@@ -1891,7 +1839,7 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
           <li><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg> Dois coffee breaks</li>
           <li><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg> Certificado de participação</li>
         </ul>
-        <a href="#participar" class="btn btn-gold btn-wide js-ingresso" data-ingresso="Ingresso Imersão">
+        <a href="https://typebot.co/imers-o-a-chave-da-comunica-o-ok6jkwq" class="btn btn-gold btn-wide js-form" data-origem="Ingresso Imersão">
           Quero meu ingresso Imersão
           <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
         </a>
@@ -1912,7 +1860,7 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
           <li class="destaque"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg> Jantar de Conexões, assinado pelo chef André Guimarães</li>
           <li><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg> Uma experiência de networking em um grupo mais seleto</li>
         </ul>
-        <a href="#participar" class="btn btn-line btn-wide js-ingresso" data-ingresso="Ingresso VIP">
+        <a href="https://typebot.co/imers-o-a-chave-da-comunica-o-ok6jkwq" class="btn btn-line btn-wide js-form" data-origem="Ingresso VIP">
           Quero conhecer a experiência VIP
           <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
         </a>
@@ -1999,39 +1947,16 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
       <div><dt>Com</dt><dd>Sirlei Benetti</dd></div>
     </dl>
 
-    <div class="cadastro">
+    <div class="chamada">
       <h3 class="t-md" style="margin-bottom:12px">Quer garantir sua participação?</h3>
       <p class="body" style="margin:0 0 30px">
         Preencha seus dados e converse com nossa equipe para conhecer as condições de inscrição
         e escolher seu ingresso.
       </p>
-      <form class="form-lead" id="form-lead" data-origem="Dobra final" novalidate>
-        <label>
-          <span>Nome</span>
-          <input type="text" name="nome" autocomplete="name" required placeholder="Seu nome completo">
-        </label>
-        <label>
-          <span>WhatsApp</span>
-          <input type="tel" name="whatsapp" autocomplete="tel" inputmode="tel" required placeholder="(45) 99999-9999">
-        </label>
-        <label>
-          <span>E-mail</span>
-          <input type="email" name="email" autocomplete="email" required placeholder="voce@email.com">
-        </label>
-        <label>
-          <span>Ingresso de interesse</span>
-          <select name="ingresso">
-            <option value="Ainda não sei">Ainda não sei</option>
-            <option value="Ingresso Imersão">Ingresso Imersão</option>
-            <option value="Ingresso VIP">Ingresso VIP</option>
-          </select>
-        </label>
-        <p class="form-erro" role="alert" hidden></p>
-        <button type="submit" class="btn btn-gold btn-wide">
-          Quero receber as informações no WhatsApp
-          <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-        </button>
-      </form>
+      <a href="https://typebot.co/imers-o-a-chave-da-comunica-o-ok6jkwq" class="btn btn-gold auto js-form" data-origem="Dobra final">
+        Quero receber as informações no WhatsApp
+        <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </a>
       <p class="tk-f">O cadastro é gratuito e não representa a reserva do ingresso.</p>
     </div>
   </div>
@@ -2057,7 +1982,7 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
 </footer>
 
 <div class="sticky" id="sticky">
-  <a href="#participar" class="btn btn-gold">Quero participar</a>
+  <a href="https://typebot.co/imers-o-a-chave-da-comunica-o-ok6jkwq" class="btn btn-gold js-form" data-origem="Barra fixa">Quero participar</a>
   <a href="https://wa.link/gal6bn" class="btn btn-line">WhatsApp</a>
 </div>
 
@@ -2255,91 +2180,17 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
     });
   });
 
-  /* ---------- CADASTRO ----------
-     grava o lead na planilha do Google Sheets (Apps Script, ver
-     integracoes/planilha-leads.gs) e em seguida abre o WhatsApp
-     da equipe com a mensagem pronta. Sem a URL da planilha,
-     o formulário continua funcionando e só abre o WhatsApp. */
-  var PLANILHA_URL='';
-  var WHATSAPP='5511975892294';
-
-  var digitos=function(v){ return (v||'').replace(/\D/g,''); };
-
-  [].forEach.call(document.querySelectorAll('.form-lead'),function(form){
-    var erro=form.querySelector('.form-erro');
-    var botao=form.querySelector('button[type=submit]');
-    var campo=function(n){ return form.elements[n]; };
-
-    campo('whatsapp').addEventListener('input',function(){
-      var d=digitos(this.value).slice(0,11), f=d;
-      if(d.length>2) f='('+d.slice(0,2)+') '+d.slice(2);
-      if(d.length>7) f='('+d.slice(0,2)+') '+d.slice(2,d.length-4)+'-'+d.slice(-4);
-      this.value=f;
-    });
-
-    form.addEventListener('submit',function(ev){
-      ev.preventDefault();
-      var nome=campo('nome').value.trim(),
-          tel=digitos(campo('whatsapp').value),
-          email=campo('email').value.trim(),
-          ingresso=campo('ingresso').value;
-
-      var problemas=[];
-      campo('nome').setAttribute('aria-invalid', nome.length<2);
-      if(nome.length<2) problemas.push('seu nome');
-      campo('whatsapp').setAttribute('aria-invalid', tel.length<10);
-      if(tel.length<10) problemas.push('um WhatsApp com DDD');
-      var emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      campo('email').setAttribute('aria-invalid', !emailOk);
-      if(!emailOk) problemas.push('um e-mail válido');
-      if(problemas.length){
-        erro.textContent='Preencha '+problemas.join(', ')+'.';
-        erro.hidden=false;
-        return;
-      }
-      erro.hidden=true;
-      botao.disabled=true;
-
-      var dados=new URLSearchParams();
-      dados.append('nome',nome);
-      dados.append('whatsapp',campo('whatsapp').value);
-      dados.append('email',email);
-      dados.append('ingresso',ingresso);
-      dados.append('origem',form.getAttribute('data-origem')||'');
-      dados.append('pagina',location.href.split('#')[0]);
-      CHAVES_UTM.forEach(function(k){
-        var v=utm[k]||'';
-        try{ v=decodeURIComponent(v.replace(/\+/g,' ')); }catch(e){}
-        dados.append(k,v);
-      });
-
-      if(PLANILHA_URL){
-        var foi=false;
-        try{ foi=navigator.sendBeacon && navigator.sendBeacon(PLANILHA_URL,dados); }catch(e){}
-        if(!foi){ try{ fetch(PLANILHA_URL,{method:'POST',mode:'no-cors',keepalive:true,body:dados}); }catch(e){} }
-      }
-
-      evento('Lead',{content_name:ingresso,content_category:EVENTO});
-
-      var msg='Olá! Meu nome é '+nome+' e quero receber as informações sobre A Chave da Comunicação (05/12, Cascavel).'+
-              (ingresso!=='Ainda não sei' ? ' Tenho interesse no '+ingresso+'.' : '');
-      var destino='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(msg);
-      setTimeout(function(){
-        window.location.href=destino;
-        botao.disabled=false;
-      },350);
-    });
-  });
-
-  /* botões dos ingressos: levam ao formulário da dobra final
-     com o ingresso escolhido já marcado */
-  var formFinal=document.getElementById('form-lead');
-  [].forEach.call(document.querySelectorAll('.js-ingresso'),function(a){
+  /* ---------- FORMULÁRIO (Typebot) ----------
+     os botões de inscrição levam ao Typebot, que grava na planilha.
+     Repassa as UTMs e de onde a pessoa clicou, para o Typebot
+     poder guardar como variáveis. */
+  [].forEach.call(document.querySelectorAll('a.js-form'),function(a){
+    var extras=[], href=a.getAttribute('href');
+    Object.keys(utm).forEach(function(k){ extras.push(k+'='+utm[k]); });
+    extras.push('origem='+encodeURIComponent(a.getAttribute('data-origem')||''));
+    a.setAttribute('href', href + (href.indexOf('?')>-1?'&':'?') + extras.join('&'));
     a.addEventListener('click',function(){
-      var ing=a.getAttribute('data-ingresso');
-      if(formFinal) formFinal.elements['ingresso'].value=ing;
-      if(window.fbq) window.fbq('trackCustom','EscolheuIngresso',{content_name:ing,content_category:EVENTO});
-      setTimeout(function(){ if(formFinal) formFinal.elements['nome'].focus({preventScroll:true}); },700);
+      evento('Lead',{content_name:a.getAttribute('data-origem')||'Formulário',content_category:EVENTO});
     });
   });
 
