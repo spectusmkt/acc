@@ -933,6 +933,7 @@ em{font-style:normal;color:var(--gold-lt)}
 .ft-in{display:flex;flex-wrap:wrap;gap:36px;justify-content:space-between}
 .ft p{font-size:15.3px;color:var(--muted);margin:0;line-height:1.9}
 .ft a:hover{color:var(--gold-lt)}
+.ft-c{display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center}
 
 .sticky{
   position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;gap:10px;
@@ -1124,7 +1125,8 @@ section[id]{scroll-margin-top:64px}
   text-transform:uppercase;color:var(--gold-lt);line-height:1.5;
 }
 .hero-pre::before{content:"";flex:0 0 34px;height:1px;background:var(--gold)}
-.hero h1{font-size:clamp(1.6rem,2.6vw,2.35rem);line-height:1.08;letter-spacing:-.035em;margin:0 0 22px;text-wrap:balance;max-width:720px}
+@media (min-width:641px){.hero-pre{white-space:nowrap;max-width:none!important}}
+.hero h1{font-size:clamp(1.7rem,2.9vw,2.6rem);line-height:1.08;letter-spacing:-.035em;margin:0 0 22px;text-wrap:balance;max-width:720px}
 .hero-sub{font-size:clamp(1.06rem,1.4vw,1.24rem);color:var(--text-2);line-height:1.6;margin:0 0 30px;max-width:610px;text-wrap:pretty}
 .hero-sub strong{color:var(--gold-pale);font-weight:600}
 .hero-auth{
@@ -1963,21 +1965,9 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
 </section>
 
 <footer class="ft">
-  <div class="wrap ft-in">
-    <div>
-      <div class="brand" style="margin-bottom:18px">
-        <img class="logo logo-ft" src="imagens/logo.png" alt="A Chave da Comunicação · Sirlei Benetti" loading="lazy">
-      </div>
-      <p>05 de dezembro de 2026 · Cascavel/PR<br>UNIGUAÇU, Edifício EXXA · Rua Presidente Bernardes, 2009</p>
-    </div>
-    <div>
-      <p>
-        <a href="#metodo">O método</a> · <a href="#mentora">A mentora</a> ·
-        <a href="#ingressos">Ingressos</a> · <a href="#participar">Participar</a><br>
-        <a href="https://wa.link/gal6bn">WhatsApp · 11 97589-2294</a>
-      </p>
-    </div>
-    <div><p>© 2026 Sirlei Benetti.<br>Todos os direitos reservados.</p></div>
+  <div class="wrap ft-c">
+    <img class="logo logo-ft" src="imagens/logo.png" alt="A Chave da Comunicação · Sirlei Benetti" loading="lazy">
+    <p>© 2026 Sirlei Benetti.<br>Todos os direitos reservados.</p>
   </div>
 </footer>
 
