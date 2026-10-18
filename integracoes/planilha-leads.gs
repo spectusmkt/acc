@@ -18,12 +18,12 @@
 
 var ABA = 'Leads';
 var COLUNAS = [
-  'Data', 'Nome', 'WhatsApp', 'E-mail', 'Ingresso de interesse',
+  'Data', 'Nome', 'WhatsApp', 'E-mail', 'Ingresso de interesse', 'Formulário',
   'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_id',
   'fbclid', 'gclid', 'ttclid', 'sck', 'src', 'Página'
 ];
 var CAMPOS = [
-  null, 'nome', 'whatsapp', 'email', 'ingresso',
+  null, 'nome', 'whatsapp', 'email', 'ingresso', 'origem',
   'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_id',
   'fbclid', 'gclid', 'ttclid', 'sck', 'src', 'pagina'
 ];

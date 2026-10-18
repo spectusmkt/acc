@@ -762,24 +762,81 @@ em{font-style:normal;color:var(--gold-lt)}
   background:radial-gradient(ellipse 90% 60% at 50% 0%,rgba(201,162,39,.14),transparent 70%),rgba(8,7,10,.82);
 }
 .cadastro h3,.cadastro>.body{text-align:center}
-#form-lead{display:grid;gap:16px}
-#form-lead label{display:grid;gap:8px}
-#form-lead label span{font-family:'Jost',sans-serif;font-size:10.8px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
-#form-lead input,#form-lead select{
+.form-lead{display:grid;gap:16px}
+.form-lead label{display:grid;gap:8px}
+.form-lead label span{font-family:'Jost',sans-serif;font-size:10.8px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.form-lead input,.form-lead select{
   width:100%;font:inherit;font-size:16px;font-weight:400;color:var(--text);
   background:rgba(255,255,255,.04);border:0;border-radius:12px;padding:15px 16px;
   box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .3s;
 }
-#form-lead select{appearance:none;-webkit-appearance:none;cursor:pointer;
+.form-lead select{appearance:none;-webkit-appearance:none;cursor:pointer;
   background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);
   background-position:calc(100% - 22px) 52%,calc(100% - 16px) 52%;background-size:6px 6px;background-repeat:no-repeat;padding-right:44px}
-#form-lead select option{background:var(--ink-2);color:var(--text)}
-#form-lead input::placeholder{color:#6E6A63}
-#form-lead input:focus,#form-lead select:focus{outline:0;box-shadow:inset 0 0 0 1.5px var(--gold)}
-#form-lead input[aria-invalid="true"]{box-shadow:inset 0 0 0 1.5px #D4665C}
-#form-lead .btn{margin-top:10px}
-#form-lead .btn[disabled]{opacity:.6;pointer-events:none}
+.form-lead select option{background:var(--ink-2);color:var(--text)}
+.form-lead input::placeholder{color:#6E6A63}
+.form-lead input:focus,.form-lead select:focus{outline:0;box-shadow:inset 0 0 0 1.5px var(--gold)}
+.form-lead input[aria-invalid="true"]{box-shadow:inset 0 0 0 1.5px #D4665C}
+.form-lead .btn{margin-top:10px}
+.form-lead .btn[disabled]{opacity:.6;pointer-events:none}
 .form-erro{margin:0;font-size:15px;color:#E09891}
+
+/* formulário do Hero: compacto, campos em duas colunas */
+.hero-form{width:100%;max-width:640px;margin:30px 0 0;padding:26px 26px 22px;border-radius:18px;
+  background:rgba(8,7,10,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  box-shadow:inset 0 0 0 1px var(--line-gold)}
+.hero-form .form-lead{grid-template-columns:1fr 1fr;gap:12px}
+.hero-form .form-lead label span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hero-form .form-lead input,.hero-form .form-lead select{padding:14px 15px;font-size:15.5px}
+.hero-form .form-erro,.hero-form .btn{grid-column:1/-1}
+.hero-form .btn{margin-top:4px}
+.hero-form-t{font-size:clamp(1.05rem,1.5vw,1.2rem);font-weight:600;margin:0 0 16px;color:var(--text)}
+.hero-form .tk-f{margin-top:12px}
+.hero-data{display:flex;flex-wrap:wrap;gap:10px 26px;margin:0;font-family:'Jost',sans-serif;font-weight:500;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-pale)}
+.hero-data span{display:inline-flex;align-items:center;gap:9px}
+.hero-data svg{width:17px;height:17px;fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.hero .hero-form{margin-top:24px}
+.hero .logo-hero{height:clamp(70px,6.6vw,104px);margin-bottom:24px}
+
+/* identificação */
+.pior{max-width:1040px;margin:0 auto;text-align:center;text-wrap:balance}
+
+/* método: o que não precisa x o que precisa */
+.contraste{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:980px;margin:0 auto}
+.contraste>div{display:flex;gap:18px;align-items:flex-start;padding:30px;border-radius:18px;
+  box-shadow:inset 0 0 0 1px var(--line);background:linear-gradient(170deg,rgba(255,255,255,.04),rgba(255,255,255,.008))}
+.contraste p{margin:0;font-size:clamp(1.05rem,1.35vw,1.2rem);line-height:1.65;color:var(--text-2)}
+.contraste .ic{flex:0 0 44px;height:44px;border-radius:50%;display:grid;place-items:center}
+.contraste .ic svg{width:20px;height:20px;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.contraste .nao .ic{background:rgba(212,102,92,.12);box-shadow:inset 0 0 0 1px rgba(212,102,92,.45)}
+.contraste .nao .ic svg{stroke:#D4665C}
+.contraste .sim{box-shadow:inset 0 0 0 1px var(--line-gold);background:radial-gradient(ellipse 90% 90% at 0% 0%,rgba(201,162,39,.12),transparent 70%)}
+.contraste .sim p{color:var(--text)}
+.contraste .sim .ic{background:rgba(201,162,39,.14);box-shadow:inset 0 0 0 1px var(--line-gold)}
+.contraste .sim .ic svg{stroke:var(--gold-lt)}
+.divisor{display:flex;align-items:center;gap:28px;max-width:1080px;margin:64px auto 60px}
+.divisor::before,.divisor::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line-gold))}
+.divisor::after{background:linear-gradient(90deg,var(--line-gold),transparent)}
+.divisor p{flex:0 1 640px;margin:0;text-align:center;text-wrap:balance;font-size:clamp(1rem,1.3vw,1.14rem);line-height:1.7;color:var(--text-2)}
+.divisor p strong{color:var(--gold-pale)}
+
+/* dobra final: os três parágrafos viram uma jornada ilustrada */
+.jornada{list-style:none;padding:0;margin:0 auto 64px;max-width:1040px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;position:relative;text-align:center}
+.jornada::before{content:"";position:absolute;top:58px;left:16%;right:16%;border-top:1px dashed var(--line-gold);z-index:0}
+.jornada li{position:relative;z-index:1;padding:4px 22px 30px;border-radius:18px;
+  background:linear-gradient(180deg,rgba(14,13,17,.94),rgba(14,13,17,.7));box-shadow:inset 0 0 0 1px var(--line)}
+.jornada li:last-child{box-shadow:inset 0 0 0 1px var(--line-gold);background:radial-gradient(ellipse 90% 60% at 50% 0%,rgba(201,162,39,.16),transparent 70%),rgba(14,13,17,.94)}
+.jornada .ilu{height:116px;display:grid;place-items:center;margin:0 auto 6px}
+.jornada .ilu svg{width:100%;max-width:200px;height:100px;overflow:visible}
+.jornada p{margin:0;font-size:16.4px;line-height:1.7;color:var(--text-2);text-wrap:pretty}
+.jornada p strong{color:var(--gold-pale)}
+.jornada .passo{display:inline-block;font-family:'Jost',sans-serif;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
+.ilu .tr{fill:none;stroke:var(--gold);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ilu .tr2{fill:none;stroke:var(--muted);stroke-width:1.6;stroke-linecap:round;stroke-dasharray:2 5}
+.ilu .bx{fill:rgba(201,162,39,.08);stroke:var(--line-gold);stroke-width:1.2}
+.ilu .cal-top{fill:var(--gold)}
+.ilu .cal-n{font:600 30px 'Poppins',sans-serif;fill:var(--gold-pale);letter-spacing:-1px}
+.ilu .cal-m{font:600 11px 'Jost',sans-serif;fill:#12100A;letter-spacing:3px}
 
 .qgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--on-gold-line);border:1px solid var(--on-gold-line);border-radius:var(--r-card);overflow:hidden}
 .qgrid div{
@@ -942,6 +999,9 @@ em{font-style:normal;color:var(--gold-lt)}
   .trilho>.quote{flex:0 0 calc((100% - 20px)/2)}
   .vcards>.vcard{flex:0 0 calc((100% - 36px)/3)}
   .nums,.nums.n3{grid-template-columns:repeat(2,1fr)}
+  .contraste{grid-template-columns:1fr}
+  .jornada{grid-template-columns:1fr;max-width:520px}
+  .jornada::before{top:40px;bottom:40px;left:50%;right:auto;border-top:0;border-left:1px dashed var(--line-gold)}
   .cadastro{padding:36px 22px 30px}
   .meta-final{flex-wrap:wrap}
   .meta-final div{flex:1 1 45%;padding:14px 0;border-right:0}
@@ -1018,6 +1078,13 @@ em{font-style:normal;color:var(--gold-lt)}
   .meta div:last-child{border-right:0;border-bottom:0;padding-right:0}
   .meta div:nth-last-child(2){border-bottom:0}
   .meta-final{grid-template-columns:1fr}
+  .hero-form{padding:20px 16px 16px;text-align:left}
+  .hero-form .form-lead{grid-template-columns:1fr}
+  .hero-form-t{text-align:center}
+  .hero-data{justify-content:center;font-size:12px;letter-spacing:.14em;gap:8px 20px}
+  .divisor{gap:0;margin:48px auto 44px}
+  .divisor::before,.divisor::after{display:none}
+  .contraste>div{padding:24px 20px}
   .meta-final div{padding:14px 0;border-right:0;border-bottom:1px solid var(--line)}
   .meta-final div:last-child{border-bottom:0}
   .cd div{min-width:0;flex:1;padding:12px 6px}
@@ -1272,19 +1339,56 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
 
     <p class="hero-sub">Um dia inteiro de prática para você melhorar sua comunicação nas <strong>reuniões, apresentações, vídeos e conversas</strong> que podem abrir novas oportunidades.</p>
 
-    <div class="acts">
-      <a href="#ingressos" class="btn btn-gold auto">
-        Quero saber como participar
-        <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-      </a>
-      <a href="#metodo" class="btn btn-line auto">Conhecer o método</a>
-    </div>
+    <p class="hero-data">
+      <span><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>05 de dezembro</span>
+      <span><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Cascavel – PR</span>
+    </p>
 
-    <dl class="meta">
-      <div><dt>Data</dt><dd>05 de dezembro</dd></div>
-      <div><dt>Local</dt><dd>Cascavel – PR</dd></div>
-    </dl>
+    <div class="hero-form" id="cadastro">
+      <p class="hero-form-t">Quer garantir sua participação?</p>
+      <form class="form-lead" data-origem="Hero" novalidate>
+        <label><span>Nome</span><input type="text" name="nome" autocomplete="name" required placeholder="Seu nome"></label>
+        <label><span>WhatsApp</span><input type="tel" name="whatsapp" autocomplete="tel" inputmode="tel" required placeholder="WhatsApp com DDD"></label>
+        <label><span>E-mail</span><input type="email" name="email" autocomplete="email" required placeholder="Seu e-mail"></label>
+        <label><span>Ingresso de interesse</span>
+          <select name="ingresso">
+            <option value="Ainda não sei">Ingresso: ainda não sei</option>
+            <option value="Ingresso Imersão">Ingresso Imersão</option>
+            <option value="Ingresso VIP">Ingresso VIP</option>
+          </select>
+        </label>
+        <p class="form-erro" role="alert" hidden></p>
+        <button type="submit" class="btn btn-gold btn-wide">
+          Quero receber as informações no WhatsApp
+          <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+      <p class="tk-f">O cadastro é gratuito e não representa a reserva do ingresso.</p>
+    </div>
   </div>
+</section>
+
+<section class="marq-wrap">
+<div class="marq rv">
+  <div class="marq-t">
+    <div class="frame" data-ph="evento-01"><img src="imagens/evento-01.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+    <div class="frame" data-ph="evento-02"><img src="imagens/evento-02.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+    <div class="frame" data-ph="evento-03"><img src="imagens/evento-03.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+    <div class="frame" data-ph="evento-04"><img src="imagens/evento-04.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+    <div class="frame" data-ph="evento-05"><img src="imagens/evento-05.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+    <div class="frame" data-ph="evento-06"><img src="imagens/evento-06.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+    <div class="frame" data-ph="evento-07"><img src="imagens/evento-07.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+    <div class="frame" data-ph="evento-08"><img src="imagens/evento-08.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+    <div class="frame" data-ph="evento-01"><img src="imagens/evento-01.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+    <div class="frame" data-ph="evento-02"><img src="imagens/evento-02.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+    <div class="frame" data-ph="evento-03"><img src="imagens/evento-03.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+    <div class="frame" data-ph="evento-04"><img src="imagens/evento-04.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+    <div class="frame" data-ph="evento-05"><img src="imagens/evento-05.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+    <div class="frame" data-ph="evento-06"><img src="imagens/evento-06.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+    <div class="frame" data-ph="evento-07"><img src="imagens/evento-07.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+    <div class="frame" data-ph="evento-08"><img src="imagens/evento-08.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+  </div>
+</div>
 </section>
 
 <section class="sec" id="pontocego" style="background:var(--ink-2);border-top:1px solid var(--line)">
@@ -1294,7 +1398,7 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
     <div class="mid rv" style="margin-bottom:56px">
       <p class="eyebrow mid">Você se identifica?</p>
       <h2 class="t-xl balance mx h2-wide">Você já sabia exatamente o que queria dizer, mas <span class="gd">na hora não conseguiu?</span></h2>
-      <p class="lead mx balance" style="max-width:640px;margin:30px auto 0">
+      <p class="lead mx" style="max-width:none;margin:30px auto 0">
         Talvez você já tenha passado por alguma dessas situações:
       </p>
     </div>
@@ -1309,8 +1413,8 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
     </ol>
 
     <div class="mid rv" style="padding:80px 0 0">
-      <p class="t-lg gd mx balance" style="max-width:720px;margin:0">
-        <i>E o pior é que, muitas vezes, você sabe que poderia ter se expressado muito melhor.</i>
+      <p class="t-lg gd pior">
+        E o pior é que, muitas vezes, você sabe que poderia ter se expressado muito melhor.
       </p>
     </div>
   </div>
@@ -1320,7 +1424,7 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
   <div class="wrap rel">
     <div class="mid rv" style="margin-bottom:50px">
       <p class="eyebrow mid">A boa notícia</p>
-      <h2 class="t-xl balance">Comunicação não é um dom. <em>É uma habilidade</em></h2>
+      <h2 class="t-xl balance">Comunicação não é um dom.<br><em>É uma habilidade</em></h2>
       <p class="lead" style="margin:20px 0 0">que pode ser aprendida e desenvolvida.</p>
     </div>
 
@@ -1354,17 +1458,24 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
   <div class="glow glow-g" style="width:760px;height:760px;top:-18%;left:50%;transform:translateX(-50%)"></div>
   <div class="wrap rel">
 
-    <div class="mid rv" style="margin-bottom:60px">
+    <div class="mid rv" style="margin-bottom:50px">
       <p class="eyebrow mid">A experiência e o método</p>
-      <h2 class="t-xl balance mx h2-wide" style="margin-bottom:24px">Um dia inteiro para você aprender a se comunicar melhor. <span class="gd">Na prática!</span></h2>
-      <p class="lead mx balance" style="max-width:700px">
-        Você não precisa mudar sua personalidade, decorar discursos ou se tornar outra pessoa
-        para se comunicar com mais confiança.
-      </p>
-      <p class="lead mx balance" style="max-width:700px">
-        Precisa desenvolver as habilidades certas e aprender a utilizá-las quando mais importa.
-      </p>
-      <p class="body mx balance" style="max-width:700px;margin-bottom:0">
+      <h2 class="t-xl balance mx h2-wide">Um dia inteiro para você aprender a se comunicar melhor. <span class="gd">Na prática!</span></h2>
+    </div>
+
+    <div class="contraste rv">
+      <div class="nao">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+        <p>Você não precisa mudar sua personalidade, decorar discursos ou se tornar outra pessoa para se comunicar com mais confiança.</p>
+      </div>
+      <div class="sim">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></span>
+        <p>Precisa desenvolver as habilidades certas e aprender a utilizá-las quando mais importa.</p>
+      </div>
+    </div>
+
+    <div class="divisor rv">
+      <p>
         Na imersão A Chave da Comunicação, você vai aprender e praticar técnicas para se expressar
         com mais clareza, segurança e confiança, por meio do <strong>Método das 4 Chaves</strong>, de Sirlei Benetti.
       </p>
@@ -1749,28 +1860,6 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
   </div>
 </section>
 
-<section class="marq-wrap">
-<div class="marq rv">
-  <div class="marq-t">
-    <div class="frame" data-ph="evento-01"><img src="imagens/evento-01.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-    <div class="frame" data-ph="evento-02"><img src="imagens/evento-02.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-    <div class="frame" data-ph="evento-03"><img src="imagens/evento-03.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-    <div class="frame" data-ph="evento-04"><img src="imagens/evento-04.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-    <div class="frame" data-ph="evento-05"><img src="imagens/evento-05.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-    <div class="frame" data-ph="evento-06"><img src="imagens/evento-06.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-    <div class="frame" data-ph="evento-07"><img src="imagens/evento-07.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-    <div class="frame" data-ph="evento-08"><img src="imagens/evento-08.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-    <div class="frame" data-ph="evento-01"><img src="imagens/evento-01.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-    <div class="frame" data-ph="evento-02"><img src="imagens/evento-02.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-    <div class="frame" data-ph="evento-03"><img src="imagens/evento-03.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-    <div class="frame" data-ph="evento-04"><img src="imagens/evento-04.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-    <div class="frame" data-ph="evento-05"><img src="imagens/evento-05.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-    <div class="frame" data-ph="evento-06"><img src="imagens/evento-06.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-    <div class="frame" data-ph="evento-07"><img src="imagens/evento-07.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-    <div class="frame" data-ph="evento-08"><img src="imagens/evento-08.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-  </div>
-</div>
-</section>
 
 <section class="sec-lg" id="ingressos" style="background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="glow glow-g" style="width:860px;height:860px;top:-14%;left:50%;transform:translateX(-50%)"></div>
@@ -1802,7 +1891,7 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
           <li><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg> Dois coffee breaks</li>
           <li><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg> Certificado de participação</li>
         </ul>
-        <a href="https://wa.me/5511975892294?text=Ol%C3%A1!%20Quero%20meu%20ingresso%20Imers%C3%A3o%20para%20A%20Chave%20da%20Comunica%C3%A7%C3%A3o%20(05%2F12%2C%20Cascavel)." class="btn btn-gold btn-wide" data-ingresso="Ingresso Imersão">
+        <a href="#participar" class="btn btn-gold btn-wide js-ingresso" data-ingresso="Ingresso Imersão">
           Quero meu ingresso Imersão
           <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
         </a>
@@ -1823,7 +1912,7 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
           <li class="destaque"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg> Jantar de Conexões, assinado pelo chef André Guimarães</li>
           <li><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg> Uma experiência de networking em um grupo mais seleto</li>
         </ul>
-        <a href="https://wa.me/5511975892294?text=Ol%C3%A1!%20Quero%20conhecer%20a%20experi%C3%AAncia%20VIP%20de%20A%20Chave%20da%20Comunica%C3%A7%C3%A3o%20(05%2F12%2C%20Cascavel)." class="btn btn-line btn-wide" data-ingresso="Ingresso VIP">
+        <a href="#participar" class="btn btn-line btn-wide js-ingresso" data-ingresso="Ingresso VIP">
           Quero conhecer a experiência VIP
           <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
         </a>
@@ -1848,19 +1937,60 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
       <span class="gd">Comece a desenvolvê-la agora</span>
     </h2>
 
-    <p class="lead mx balance" style="max-width:660px;margin-bottom:16px">
-      Imagine conseguir organizar melhor suas ideias, falar com mais segurança e se sentir mais
-      preparado para se expressar nas situações que realmente importam.
-    </p>
-    <p class="lead mx balance" style="max-width:660px;margin-bottom:16px">
-      Seja em uma reunião, apresentação, vídeo ou conversa do dia a dia, as habilidades que você vai
-      aprender poderão acompanhar você muito além da imersão.
-    </p>
-    <p class="lead mx balance" style="max-width:660px;margin-bottom:44px">
-      No dia <strong style="color:var(--gold-pale)">5 de dezembro</strong>, dê o primeiro passo para
-      transformar a maneira como você se comunica.
-    </p>
-
+  </div>
+  <div class="wrap rel">
+    <ol class="jornada rv">
+      <li>
+        <div class="ilu" aria-hidden="true">
+          <svg viewBox="0 0 200 100">
+            <path class="tr2" d="M8 30q14-16 26 2t22 6"/>
+            <path class="tr2" d="M6 66q16 10 28-4t22 4"/>
+            <rect class="bx" x="62" y="18" width="76" height="64" rx="14"/>
+            <path class="tr" d="M78 38h44M78 50h32M78 62h40"/>
+            <path class="tr" d="M148 50h38M178 42l8 8-8 8"/>
+          </svg>
+        </div>
+        <span class="passo">Imagine</span>
+        <p>Imagine conseguir organizar melhor suas ideias, falar com mais segurança e se sentir mais
+        preparado para se expressar nas situações que realmente importam.</p>
+      </li>
+      <li>
+        <div class="ilu" aria-hidden="true">
+          <svg viewBox="0 0 200 100">
+            <rect class="bx" x="8" y="26" width="40" height="40" rx="11"/>
+            <circle class="tr" cx="28" cy="40" r="5"/><path class="tr" d="M18 56a10 7 0 0 1 20 0"/>
+            <rect class="bx" x="56" y="26" width="40" height="40" rx="11"/>
+            <path class="tr" d="M66 36h20v13H66zM76 49v7M70 56h12"/>
+            <rect class="bx" x="104" y="26" width="40" height="40" rx="11"/>
+            <path class="tr" d="M113 38h15v15h-15zM128 43l7-4v13l-7-4"/>
+            <rect class="bx" x="152" y="26" width="40" height="40" rx="11"/>
+            <path class="tr" d="M162 37h16a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3h-9l-5 4v-4h-2a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3z"/>
+            <path class="tr2" d="M28 82h144"/>
+          </svg>
+        </div>
+        <span class="passo">No dia a dia</span>
+        <p>Seja em uma reunião, apresentação, vídeo ou conversa do dia a dia, as habilidades que você vai
+        aprender poderão acompanhar você muito além da imersão.</p>
+      </li>
+      <li>
+        <div class="ilu" aria-hidden="true">
+          <svg viewBox="0 0 200 100">
+            <path class="tr2" d="M14 52h36"/>
+            <rect class="bx" x="62" y="14" width="76" height="78" rx="12"/>
+            <path class="cal-top" d="M62 26a12 12 0 0 1 12-12h52a12 12 0 0 1 12 12v8H62z"/>
+            <text class="cal-m" x="100" y="29" text-anchor="middle">DEZ</text>
+            <text class="cal-n" x="100" y="74" text-anchor="middle">05</text>
+            <path class="tr" d="M82 6v14M118 6v14"/>
+            <path class="tr" d="M150 52h32M174 44l8 8-8 8"/>
+          </svg>
+        </div>
+        <span class="passo">O primeiro passo</span>
+        <p>No dia <strong>5 de dezembro</strong>, dê o primeiro passo para
+        transformar a maneira como você se comunica.</p>
+      </li>
+    </ol>
+  </div>
+  <div class="narrow rel rv">
     <p class="name-tag" style="margin:0 auto 18px">A Chave da Comunicação</p>
     <dl class="meta meta-final mx">
       <div><dt>Data</dt><dd>Sábado, 05 de dezembro de 2026</dd></div>
@@ -1875,7 +2005,7 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
         Preencha seus dados e converse com nossa equipe para conhecer as condições de inscrição
         e escolher seu ingresso.
       </p>
-      <form id="form-lead" novalidate>
+      <form class="form-lead" id="form-lead" data-origem="Dobra final" novalidate>
         <label>
           <span>Nome</span>
           <input type="text" name="nome" autocomplete="name" required placeholder="Seu nome completo">
@@ -1896,7 +2026,7 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
             <option value="Ingresso VIP">Ingresso VIP</option>
           </select>
         </label>
-        <p class="form-erro" id="form-erro" role="alert" hidden></p>
+        <p class="form-erro" role="alert" hidden></p>
         <button type="submit" class="btn btn-gold btn-wide">
           Quero receber as informações no WhatsApp
           <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
@@ -2121,7 +2251,7 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
 
   document.querySelectorAll('a[href*="wa.link"],a[href*="wa.me"]').forEach(function(a){
     a.addEventListener('click',function(){
-      evento('Contact',{content_name:a.getAttribute('data-ingresso')||'WhatsApp',content_category:EVENTO});
+      evento('Contact',{content_name:'WhatsApp',content_category:EVENTO});
     });
   });
 
@@ -2133,11 +2263,12 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
   var PLANILHA_URL='';
   var WHATSAPP='5511975892294';
 
-  var form=document.getElementById('form-lead');
-  if(form){
-    var erro=document.getElementById('form-erro');
+  var digitos=function(v){ return (v||'').replace(/\D/g,''); };
+
+  [].forEach.call(document.querySelectorAll('.form-lead'),function(form){
+    var erro=form.querySelector('.form-erro');
+    var botao=form.querySelector('button[type=submit]');
     var campo=function(n){ return form.elements[n]; };
-    var digitos=function(v){ return (v||'').replace(/\D/g,''); };
 
     campo('whatsapp').addEventListener('input',function(){
       var d=digitos(this.value).slice(0,11), f=d;
@@ -2167,13 +2298,14 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
         return;
       }
       erro.hidden=true;
-      form.querySelector('button').disabled=true;
+      botao.disabled=true;
 
       var dados=new URLSearchParams();
       dados.append('nome',nome);
       dados.append('whatsapp',campo('whatsapp').value);
       dados.append('email',email);
       dados.append('ingresso',ingresso);
+      dados.append('origem',form.getAttribute('data-origem')||'');
       dados.append('pagina',location.href.split('#')[0]);
       CHAVES_UTM.forEach(function(k){
         var v=utm[k]||'';
@@ -2194,10 +2326,22 @@ src="https://www.facebook.com/tr?id=1060841889379740&ev=PageView&noscript=1" alt
       var destino='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(msg);
       setTimeout(function(){
         window.location.href=destino;
-        form.querySelector('button').disabled=false;
+        botao.disabled=false;
       },350);
     });
-  }
+  });
+
+  /* botões dos ingressos: levam ao formulário da dobra final
+     com o ingresso escolhido já marcado */
+  var formFinal=document.getElementById('form-lead');
+  [].forEach.call(document.querySelectorAll('.js-ingresso'),function(a){
+    a.addEventListener('click',function(){
+      var ing=a.getAttribute('data-ingresso');
+      if(formFinal) formFinal.elements['ingresso'].value=ing;
+      if(window.fbq) window.fbq('trackCustom','EscolheuIngresso',{content_name:ing,content_category:EVENTO});
+      setTimeout(function(){ if(formFinal) formFinal.elements['nome'].focus({preventScroll:true}); },700);
+    });
+  });
 
   var secIngressos=document.getElementById('ingressos');
   if(secIngressos && 'IntersectionObserver' in window){
