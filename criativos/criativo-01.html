@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-br"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Jost:wght@400;500&display=block" rel="stylesheet">
+<style>
+:root{--ink:#08070A;--gold:#C9A227;--gold-lt:#E5C96F;--text:#F4F2ED;--muted:#969188}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--ink);font-family:Poppins,sans-serif;color:var(--text)}
+.cena{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 90px;opacity:0}
+.anim{animation-fill-mode:both;animation-timing-function:cubic-bezier(.2,.8,.2,1)}
+@keyframes sobe{from{opacity:0;transform:translateY(80px)}to{opacity:1;transform:none}}
+@keyframes some{to{opacity:0}}
+@keyframes aparece{from{opacity:0}to{opacity:1}}
+@keyframes zoom{from{transform:scale(1.15)}to{transform:scale(1)}}
+@keyframes risco{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes pulso{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+h1{font-size:104px;line-height:1.08;font-weight:800;letter-spacing:-2px}
+.ouro{color:var(--gold)}
+.mini{font-family:Jost;font-size:40px;letter-spacing:6px;text-transform:uppercase;color:var(--gold-lt);margin-bottom:40px}
+
+/* CENA 1 · gancho (0–3.2s) */
+#c1{animation:aparece .01s 0s both,some .4s 3.0s forwards}
+#c1 .l1{animation:sobe .6s .2s both}
+#c1 .l2{animation:sobe .6s 1.2s both}
+#c1 .barra{height:10px;width:300px;background:var(--gold);margin-top:60px;transform-origin:left;animation:risco .7s 1.9s both}
+
+/* CENA 2 · virada (3.2–6.4s) */
+#c2{animation:aparece .01s 3.2s both,some .4s 6.2s forwards}
+#c2 .l1{animation:sobe .6s 3.4s both}
+#c2 .l2{animation:sobe .6s 4.4s both}
+#c2 .l2 span{display:inline-block;background:var(--gold);color:var(--ink);padding:0 24px}
+
+/* CENA 3 · Sirlei + 4 chaves (6.4–10.4s) */
+#c3{animation:aparece .5s 6.4s both,some .4s 10.2s forwards;justify-content:flex-end;padding-bottom:160px}
+#c3 .foto{position:absolute;inset:0;background:url(../imagens/sirlei-bio.jpg) center 20%/cover;animation:zoom 4.5s 6.4s linear both}
+#c3 .veu{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,7,10,0) 30%,rgba(8,7,10,.85) 62%,var(--ink) 100%)}
+#c3 > *:not(.foto):not(.veu){position:relative}
+#c3 .mini{animation:sobe .6s 6.9s both}
+#c3 h1{font-size:88px;animation:sobe .6s 7.2s both}
+#c3 .chaves{display:flex;flex-wrap:wrap;gap:20px;margin-top:50px}
+#c3 .chave{font-size:40px;font-weight:600;border:3px solid var(--gold);color:var(--gold-lt);border-radius:60px;padding:14px 36px}
+#c3 .chave:nth-child(1){animation:sobe .5s 8.0s both}
+#c3 .chave:nth-child(2){animation:sobe .5s 8.3s both}
+#c3 .chave:nth-child(3){animation:sobe .5s 8.6s both}
+#c3 .chave:nth-child(4){animation:sobe .5s 8.9s both}
+
+/* CENA 4 · chamada final (10.4–14s) */
+#c4{animation:aparece .5s 10.4s both;align-items:center;text-align:center}
+#c4 img{width:420px;animation:sobe .6s 10.6s both;margin-bottom:70px}
+#c4 .data{font-size:110px;font-weight:800;line-height:1;animation:sobe .6s 11.0s both}
+#c4 .local{font-family:Jost;font-size:52px;color:var(--muted);margin:24px 0 90px;animation:sobe .6s 11.3s both}
+#c4 .btn{font-size:54px;font-weight:700;background:var(--gold);color:var(--ink);padding:36px 70px;border-radius:100px;animation:sobe .6s 11.8s both,pulso 1s 12.5s 2 ease-in-out}
+</style></head><body>
+
+<section class="cena" id="c1">
+  <h1 class="l1 anim">Você sabia o que queria dizer…</h1>
+  <h1 class="l2 anim ouro" style="margin-top:40px">mas na hora não conseguiu?</h1>
+  <div class="barra anim"></div>
+</section>
+
+<section class="cena" id="c2">
+  <h1 class="l1 anim">Comunicação não é um dom.</h1>
+  <h1 class="l2 anim" style="margin-top:50px"><span>É uma habilidade.</span></h1>
+</section>
+
+<section class="cena" id="c3">
+  <div class="foto anim"></div><div class="veu"></div>
+  <div class="mini anim">Imersão presencial</div>
+  <h1 class="anim">A Chave da <span class="ouro">Comunicação</span></h1>
+  <div class="chaves">
+    <div class="chave anim">Clareza</div><div class="chave anim">Presença</div>
+    <div class="chave anim">Posicionamento</div><div class="chave anim">Conexão</div>
+  </div>
+</section>
+
+<section class="cena" id="c4">
+  <img class="anim" src="../imagens/logo.png" alt="">
+  <div class="data anim ouro">05 de dezembro</div>
+  <div class="local anim">Cascavel · PR · com Sirlei Benetti</div>
+  <div class="btn anim">Garanta sua vaga</div>
+</section>
+</body></html>
