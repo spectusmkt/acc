@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br" data-duracao="30"><head><meta charset="utf-8">
+<html lang="pt-br" data-duracao="35"><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Montserrat:wght@400;500;600&display=block" rel="stylesheet">
 <style>
 :root{
@@ -46,7 +46,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--off);color
 
 /* ================= CENA 1 · gancho (0–4 s) ================= */
 #c1{opacity:1}
-#c1 .camada{animation:aproxima 4.4s linear both}
+#c1 .camada{animation:aproxima 4.5s linear both}
 #c1 .pendente{top:1180px}
 #c1 .veu{position:absolute;inset:0;background:linear-gradient(180deg,rgba(250,247,241,.96) 0%,rgba(250,247,241,.9) 30%,rgba(250,247,241,.55) 44%,rgba(250,247,241,0) 58%)}
 #c1 .texto{position:absolute;top:250px;left:90px;right:90px}
@@ -58,19 +58,19 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--off);color
 #c1 .sublinha path{stroke:var(--oceano);stroke-width:5;animation:desenha .9s 1.5s both var(--suav)}
 
 /* ================= CENA 2 · revelação (4–8 s) ================= */
-#c2{animation:entra .4s 3.6s both ease-in-out}
+#c2{animation:entra .4s 3.7s both ease-in-out}
 #c2 .midia{bottom:760px}
-#c2 .camada{animation:desliza 4.8s 3.6s linear both}
+#c2 .camada{animation:desliza 5.2s 3.7s linear both}
 #c2 .pendente{top:470px}
 #c2 .painel{height:820px}
 #c2 .conteudo{position:absolute;left:90px;right:90px;top:120px}
-#c2 .l1{font-size:96px;animation:sobe .7s 4.3s}
-#c2 .l2{font-size:96px;margin-top:4px;animation:sobe .8s 4.9s}
+#c2 .l1{font-size:96px;animation:sobe .7s 4.4s}
+#c2 .l2{font-size:96px;margin-top:4px;animation:sobe .8s 5.0s}
 #c2 .linha{display:block;width:360px;height:30px;margin:26px 0 30px}
-#c2 .linha path{stroke:var(--claro);stroke-width:4;animation:desenha 1s 5.5s both var(--suav)}
-#c2 .selo{display:flex;align-items:center;gap:22px;animation:sobe .7s 5.9s}
+#c2 .linha path{stroke:var(--claro);stroke-width:4;animation:desenha 1s 5.6s both var(--suav)}
+#c2 .selo{display:flex;align-items:center;gap:22px;animation:sobe .7s 6.0s}
 #c2 .selo svg{width:46px;height:56px}
-#c2 .bandeira{position:absolute;right:110px;top:-215px;width:190px;height:250px;animation:escala .9s 5.2s}
+#c2 .bandeira{position:absolute;right:110px;top:-215px;width:190px;height:250px;animation:escala .9s 5.3s}
 
 /* bandeira: a forma do tecido muda devagar, parecendo vento */
 .pano{animation:tremula 1.8s ease-in-out infinite alternate}
@@ -80,65 +80,67 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--off);color
 }
 
 /* ================= CENA 3 · o que a certificação avalia (8–17 s) ================= */
-#c3{animation:entra .45s 7.6s both ease-in-out}
-#c3 .camada{animation:aproxima 9.6s 7.6s linear both}
+#c3{animation:entra .45s 8.1s both ease-in-out}
+#c3 .camada{animation:aproxima 10.9s 8.1s linear both}
 #c3 .pendente{top:1640px;width:640px;padding:14px 20px;font-size:22px}
 #c3 .pendente b{font-size:20px}
 #c3 .veu{position:absolute;inset:0;background:linear-gradient(180deg,rgba(250,247,241,.93) 0%,rgba(224,240,248,.88) 100%)}
 #c3 .topo{position:absolute;top:250px;left:90px;right:90px}
-#c3 .sobrelinha{animation:sobe .7s 8.1s}
-#c3 .titulo{font-size:84px;margin-top:22px;animation:sobe .8s 8.4s}
+#c3 .sobrelinha{animation:sobe .7s 8.4s}
+#c3 .titulo{font-size:84px;margin-top:22px;animation:sobe .8s 8.6s}
 #c3 .grade{position:absolute;top:720px;left:90px;right:90px;display:grid;grid-template-columns:1fr 1fr;row-gap:70px;column-gap:40px}
 #c3 .item{text-align:center}
 #c3 .icone{width:200px;height:200px;margin:0 auto 26px;border-radius:50%;background:var(--off);border:2px solid var(--claro);display:grid;place-items:center}
 #c3 .icone svg{width:104px;height:104px}
 #c3 .icone path{stroke:var(--oceano);stroke-width:2.2;stroke-linejoin:round}
 #c3 .rotulo{font:600 40px/1.25 var(--sans);color:var(--marinho)}
-#c3 .item:nth-child(1) .icone{animation:escala .6s 9.0s}  #c3 .item:nth-child(1) path{animation:desenha 1.1s 9.1s both var(--suav)}  #c3 .item:nth-child(1) .rotulo{animation:entra .6s 9.3s both}
-#c3 .item:nth-child(2) .icone{animation:escala .6s 10.6s} #c3 .item:nth-child(2) path{animation:desenha 1.1s 10.7s both var(--suav)} #c3 .item:nth-child(2) .rotulo{animation:entra .6s 10.9s both}
-#c3 .item:nth-child(3) .icone{animation:escala .6s 12.2s} #c3 .item:nth-child(3) path{animation:desenha 1.1s 12.3s both var(--suav)} #c3 .item:nth-child(3) .rotulo{animation:entra .6s 12.5s both}
-#c3 .item:nth-child(4) .icone{animation:escala .6s 13.8s} #c3 .item:nth-child(4) path{animation:desenha 1.1s 13.9s both var(--suav)} #c3 .item:nth-child(4) .rotulo{animation:entra .6s 14.1s both}
-#c3 .nota{position:absolute;top:1480px;left:90px;right:90px;text-align:center;font:italic 500 46px var(--serif);color:var(--oceano);animation:sobe .7s 15.0s}
+#c3 .item:nth-child(1) .icone{animation:escala .6s 9.2s}  #c3 .item:nth-child(1) path{animation:desenha 1.1s 9.3s both var(--suav)}  #c3 .item:nth-child(1) .rotulo{animation:entra .6s 9.5s both}
+#c3 .item:nth-child(2) .icone{animation:escala .6s 10.8s} #c3 .item:nth-child(2) path{animation:desenha 1.1s 10.9s both var(--suav)} #c3 .item:nth-child(2) .rotulo{animation:entra .6s 11.1s both}
+#c3 .item:nth-child(3) .icone{animation:escala .6s 13.0s} #c3 .item:nth-child(3) path{animation:desenha 1.1s 13.1s both var(--suav)} #c3 .item:nth-child(3) .rotulo{animation:entra .6s 13.3s both}
+#c3 .item:nth-child(4) .icone{animation:escala .6s 14.8s} #c3 .item:nth-child(4) path{animation:desenha 1.1s 14.9s both var(--suav)} #c3 .item:nth-child(4) .rotulo{animation:entra .6s 15.1s both}
+#c3 .nota{position:absolute;top:1480px;left:90px;right:90px;text-align:center;font:italic 500 46px var(--serif);color:var(--oceano);animation:sobe .7s 16.4s}
 
 /* ================= CENA 4 · Praia do Peró (17–23 s) ================= */
-#c4{animation:entra .45s 16.6s both ease-in-out}
-#c4 .camada{animation:desliza-inv 6.8s 16.6s linear both}
+#c4{animation:entra .45s 18.2s both ease-in-out}
+#c4 .camada{animation:desliza-inv 7.4s 18.2s linear both}
 #c4 .pendente{top:420px}
 #c4 .veu{position:absolute;inset:0;background:linear-gradient(0deg,rgba(16,58,99,.94) 0%,rgba(16,58,99,.78) 26%,rgba(16,58,99,.25) 48%,rgba(16,58,99,0) 62%)}
 #c4 .texto{position:absolute;left:90px;right:90px;bottom:330px;color:var(--off)}
-#c4 .titulo{font-size:100px;animation:sobe .8s 17.4s}
+#c4 .titulo{font-size:100px;animation:sobe .8s 18.8s}
 #c4 .titulo em{color:var(--claro)}
 #c4 .faixa{display:inline-flex;align-items:center;gap:18px;margin-top:40px;padding:14px 16px 14px 30px;border:2px solid var(--claro);border-radius:60px;
-  font:500 34px var(--sans);letter-spacing:.5px;animation:sobe .7s 18.4s}
-#c4 .faixa b{background:var(--off);color:var(--marinho);font-weight:600;border-radius:40px;padding:8px 22px;animation:escala .5s 18.9s}
+  font:500 34px var(--sans);letter-spacing:.5px;animation:sobe .7s 20.2s}
+#c4 .faixa b{font-weight:600;border-radius:40px;padding:8px 22px;animation:acende .6s 22.4s}
+/* o ano já aparece junto com a faixa e "acende" quando a voz chega na temporada */
+@keyframes acende{from{background:rgba(250,247,241,0);color:var(--off);transform:scale(.95)}to{background:var(--off);color:var(--marinho);transform:none}}
 #c4 .onda{position:absolute;left:0;right:0;bottom:250px;width:100%;height:60px}
-#c4 .onda path{stroke:var(--claro);stroke-width:3;animation:desenha 1.6s 19.2s both var(--suav)}
-#c4 .logo-discreta{position:absolute;top:240px;left:90px;height:90px;opacity:0;display:none}
-.com-logo #c4 .logo-discreta{display:block;animation:entra .8s 18s both}
+#c4 .onda path{stroke:var(--claro);stroke-width:3;animation:desenha 1.6s 20.8s both var(--suav)}
+#c4 .logo-discreta{position:absolute;top:240px;left:90px;height:96px;opacity:0;display:none;filter:brightness(0) invert(1)}
+.com-logo #c4 .logo-discreta{display:block;animation:entra .8s 19.4s both}
 
 /* ================= CENA 5 · pousada (23–30 s) ================= */
-#c5{animation:entra .45s 22.6s both ease-in-out}
+#c5{animation:entra .45s 25.2s both ease-in-out}
 #c5 .midia{bottom:880px}
-#c5 .m-a .camada{animation:aproxima 2.2s 22.6s linear both}
-#c5 .m-b{animation:entra .5s 23.8s both ease-in-out}
-#c5 .m-b .camada{animation:aproxima 6.5s 23.8s linear both}
+#c5 .m-a .camada{animation:aproxima 3.3s 25.2s linear both}
+#c5 .m-b{animation:entra .5s 27.9s both ease-in-out}
+#c5 .m-b .camada{animation:aproxima 7.1s 27.9s linear both}
 #c5 .pendente{top:420px}
 #c5 .painel{height:960px}
 #c5 .fase{position:absolute;left:90px;right:90px;top:110px}
-#c5 .fase-a{animation:some .4s 26.6s forwards}
-#c5 .fase-a .titulo{font-size:84px;animation:sobe .8s 23.3s}
-#c5 .fase-a .apoio{margin-top:34px;animation:sobe .7s 24.7s}
+#c5 .fase-a{animation:some .4s 31.0s forwards}
+#c5 .fase-a .titulo{font-size:84px;animation:sobe .8s 25.6s}
+#c5 .fase-a .apoio{margin-top:34px;animation:sobe .7s 28.4s}
 #c5 .fase-b{text-align:center;top:80px}
-#c5 .logo{height:200px;display:flex;align-items:center;justify-content:center;animation:escala .8s 27.0s}
-#c5 .logo img{max-height:200px;max-width:560px;display:none}
+#c5 .logo{height:200px;display:flex;align-items:center;justify-content:center;animation:escala .8s 31.3s}
+#c5 .logo img{max-height:210px;max-width:600px;display:none}
 .com-logo #c5 .logo img{display:block}
 .com-logo #c5 .logo .falta-logo{display:none}
 .falta-logo{width:520px;height:180px;border:2px dashed var(--claro);border-radius:18px;display:grid;place-content:center;font:600 24px/1.5 var(--sans);letter-spacing:3px;color:var(--oceano)}
-#c5 .slogan{font:italic 500 56px var(--serif);color:var(--oceano);margin-top:34px;animation:sobe .7s 27.6s}
-#c5 .perfil{font:600 38px var(--sans);color:var(--marinho);margin-top:30px;animation:sobe .6s 28.0s}
-#c5 .cta{display:inline-flex;align-items:center;gap:14px;margin-top:22px;font:500 32px var(--sans);color:var(--oceano);animation:sobe .6s 28.3s}
+#c5 .slogan{font:italic 500 56px var(--serif);color:var(--oceano);margin-top:34px;animation:sobe .7s 31.9s}
+#c5 .perfil{font:600 38px var(--sans);color:var(--marinho);margin-top:30px;animation:sobe .6s 32.4s}
+#c5 .cta{display:inline-flex;align-items:center;gap:14px;margin-top:22px;font:500 32px var(--sans);color:var(--oceano);animation:sobe .6s 32.7s}
 #c5 .cta svg{width:26px;height:34px}
-#c5 .final{position:absolute;inset:0;bottom:880px;background:var(--off);opacity:0;animation:entra .5s 29.5s both ease-in-out}
+#c5 .final{position:absolute;inset:0;z-index:5;background:var(--off);opacity:0;animation:entra .4s 34.6s both ease-in-out}
 </style></head><body>
 
 <!-- CENA 1 · GANCHO -->
@@ -233,7 +235,6 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--off);color
     <div class="pendente"><b>FOTO PENDENTE · cena5a</b>Outra paisagem do Peró / Cabo Frio (diferente das anteriores)</div></div>
   <div class="midia m-b" data-midia="cena5b"><div class="camada" style="background:linear-gradient(165deg,#E0F0F8,#9ACBE6 60%,#147CAD)"></div>
     <div class="pendente"><b>FOTO PENDENTE · cena5b</b>Fachada real da Areias do Peró</div></div>
-  <div class="final"></div>
   <div class="painel">
     <svg class="borda" viewBox="0 0 1080 120" preserveAspectRatio="none"><path fill="#FAF7F1" d="M0 50 C200 120 380 110 560 60 S880 10 1080 70 V120 H0 Z"/></svg>
     <div class="fase fase-a">
@@ -247,6 +248,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--off);color
       <div class="cta a"><svg viewBox="0 0 26 34"><path d="M3 2 H23 V31 L13 23 L3 31 Z" fill="none" stroke="#147CAD" stroke-width="2.4" stroke-linejoin="round"/></svg>Salve para sua próxima viagem!</div>
     </div>
   </div>
+  <div class="final"></div>
 </section>
 
 <script>
