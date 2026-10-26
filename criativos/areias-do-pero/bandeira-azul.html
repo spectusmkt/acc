@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="pt-br" data-duracao="30"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Montserrat:wght@400;500;600&display=block" rel="stylesheet">
+<style>
+:root{
+  --marinho:#103A63;--oceano:#147CAD;--claro:#9ACBE6;--suave:#E0F0F8;--off:#FAF7F1;--areia:#D8BEA0;
+  --serif:'Cormorant Garamond',serif;--sans:Montserrat,sans-serif;
+  --suav:cubic-bezier(.22,.8,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--off);color:var(--marinho);font-family:var(--sans)}
+
+/* ---------- animações base ---------- */
+@keyframes entra{from{opacity:0}to{opacity:1}}
+@keyframes sobe{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes some{to{opacity:0}}
+@keyframes escala{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:none}}
+@keyframes desenha{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes aproxima{from{transform:scale(1)}to{transform:scale(1.04)}}
+@keyframes desliza{from{transform:scale(1.06) translateX(-28px)}to{transform:scale(1.06) translateX(28px)}}
+@keyframes desliza-inv{from{transform:scale(1.06) translateX(28px)}to{transform:scale(1.06) translateX(-28px)}}
+.a{animation-timing-function:var(--suav)!important;animation-fill-mode:both!important}
+.traco{fill:none;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+
+/* cada cena entra por cima da anterior com fade de 0,4 s, então não há tela vazia entre elas */
+.cena{position:absolute;inset:0;overflow:hidden;opacity:0}
+
+/* ---------- espaços de foto/vídeo ---------- */
+.midia{position:absolute;inset:0;overflow:hidden}
+.midia > .camada{position:absolute;inset:-2%;background:linear-gradient(165deg,var(--claro) 0%,var(--oceano) 55%,var(--marinho) 100%) center/cover}
+.midia video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pendente{position:absolute;left:50%;transform:translateX(-50%);width:760px;border:2px dashed rgba(250,247,241,.75);border-radius:18px;
+  padding:26px 30px;text-align:center;color:var(--off);font:500 28px/1.4 var(--sans);letter-spacing:.5px;background:rgba(16,58,99,.25)}
+.pendente b{display:block;font-weight:600;letter-spacing:4px;font-size:24px;margin-bottom:6px;color:var(--suave)}
+.carregada .pendente{display:none}
+
+/* ---------- tipografia ---------- */
+.titulo{font-family:var(--serif);font-weight:600;line-height:1.02;letter-spacing:-.5px}
+.titulo em{font-style:italic;font-weight:500;color:var(--oceano)}
+.sobrelinha{font:600 30px var(--sans);letter-spacing:7px;text-transform:uppercase;color:var(--oceano)}
+.apoio{font:400 38px/1.45 var(--sans);color:var(--marinho)}
+
+/* painel off-white com borda ondulada no topo */
+.painel{position:absolute;left:0;right:0;bottom:0;background:var(--off)}
+.painel > svg.borda{position:absolute;left:0;bottom:100%;width:100%;height:120px;display:block}
+
+/* ================= CENA 1 · gancho (0–4 s) ================= */
+#c1{opacity:1}
+#c1 .camada{animation:aproxima 4.4s linear both}
+#c1 .pendente{top:1180px}
+#c1 .veu{position:absolute;inset:0;background:linear-gradient(180deg,rgba(250,247,241,.96) 0%,rgba(250,247,241,.9) 30%,rgba(250,247,241,.55) 44%,rgba(250,247,241,0) 58%)}
+#c1 .texto{position:absolute;top:250px;left:90px;right:90px}
+#c1 .t1{font-size:92px;animation:sobe .8s .3s}
+#c1 .t2{font-size:92px;margin-top:6px;animation:sobe .8s 1.0s}
+#c1 .t2 em{font-size:124px;display:inline-block;color:var(--marinho);transition:none;animation:destaca .6s 1.5s both var(--suav)}
+@keyframes destaca{from{color:var(--marinho)}to{color:var(--oceano)}}
+#c1 .sublinha{display:block;width:620px;height:40px;margin-top:-6px}
+#c1 .sublinha path{stroke:var(--oceano);stroke-width:5;animation:desenha .9s 1.5s both var(--suav)}
+
+/* ================= CENA 2 · revelação (4–8 s) ================= */
+#c2{animation:entra .4s 3.6s both ease-in-out}
+#c2 .midia{bottom:760px}
+#c2 .camada{animation:desliza 4.8s 3.6s linear both}
+#c2 .pendente{top:470px}
+#c2 .painel{height:820px}
+#c2 .conteudo{position:absolute;left:90px;right:90px;top:120px}
+#c2 .l1{font-size:96px;animation:sobe .7s 4.3s}
+#c2 .l2{font-size:96px;margin-top:4px;animation:sobe .8s 4.9s}
+#c2 .linha{display:block;width:360px;height:30px;margin:26px 0 30px}
+#c2 .linha path{stroke:var(--claro);stroke-width:4;animation:desenha 1s 5.5s both var(--suav)}
+#c2 .selo{display:flex;align-items:center;gap:22px;animation:sobe .7s 5.9s}
+#c2 .selo svg{width:46px;height:56px}
+#c2 .bandeira{position:absolute;right:110px;top:-215px;width:190px;height:250px;animation:escala .9s 5.2s}
+
+/* bandeira: a forma do tecido muda devagar, parecendo vento */
+.pano{animation:tremula 1.8s ease-in-out infinite alternate}
+@keyframes tremula{
+  from{d:path('M8 4 C26 -2 44 10 62 4 C80 -2 98 8 112 4 L112 64 C98 68 80 58 62 64 C44 70 26 58 8 64 Z')}
+  to{d:path('M8 4 C26 10 44 -2 62 6 C80 12 98 0 112 6 L112 66 C98 60 80 72 62 66 C44 58 26 70 8 64 Z')}
+}
+
+/* ================= CENA 3 · o que a certificação avalia (8–17 s) ================= */
+#c3{animation:entra .45s 7.6s both ease-in-out}
+#c3 .camada{animation:aproxima 9.6s 7.6s linear both}
+#c3 .pendente{top:1640px;width:640px;padding:14px 20px;font-size:22px}
+#c3 .pendente b{font-size:20px}
+#c3 .veu{position:absolute;inset:0;background:linear-gradient(180deg,rgba(250,247,241,.93) 0%,rgba(224,240,248,.88) 100%)}
+#c3 .topo{position:absolute;top:250px;left:90px;right:90px}
+#c3 .sobrelinha{animation:sobe .7s 8.1s}
+#c3 .titulo{font-size:84px;margin-top:22px;animation:sobe .8s 8.4s}
+#c3 .grade{position:absolute;top:720px;left:90px;right:90px;display:grid;grid-template-columns:1fr 1fr;row-gap:70px;column-gap:40px}
+#c3 .item{text-align:center}
+#c3 .icone{width:200px;height:200px;margin:0 auto 26px;border-radius:50%;background:var(--off);border:2px solid var(--claro);display:grid;place-items:center}
+#c3 .icone svg{width:104px;height:104px}
+#c3 .icone path{stroke:var(--oceano);stroke-width:2.2;stroke-linejoin:round}
+#c3 .rotulo{font:600 40px/1.25 var(--sans);color:var(--marinho)}
+#c3 .item:nth-child(1) .icone{animation:escala .6s 9.0s}  #c3 .item:nth-child(1) path{animation:desenha 1.1s 9.1s both var(--suav)}  #c3 .item:nth-child(1) .rotulo{animation:entra .6s 9.3s both}
+#c3 .item:nth-child(2) .icone{animation:escala .6s 10.6s} #c3 .item:nth-child(2) path{animation:desenha 1.1s 10.7s both var(--suav)} #c3 .item:nth-child(2) .rotulo{animation:entra .6s 10.9s both}
+#c3 .item:nth-child(3) .icone{animation:escala .6s 12.2s} #c3 .item:nth-child(3) path{animation:desenha 1.1s 12.3s both var(--suav)} #c3 .item:nth-child(3) .rotulo{animation:entra .6s 12.5s both}
+#c3 .item:nth-child(4) .icone{animation:escala .6s 13.8s} #c3 .item:nth-child(4) path{animation:desenha 1.1s 13.9s both var(--suav)} #c3 .item:nth-child(4) .rotulo{animation:entra .6s 14.1s both}
+#c3 .nota{position:absolute;top:1480px;left:90px;right:90px;text-align:center;font:italic 500 46px var(--serif);color:var(--oceano);animation:sobe .7s 15.0s}
+
+/* ================= CENA 4 · Praia do Peró (17–23 s) ================= */
+#c4{animation:entra .45s 16.6s both ease-in-out}
+#c4 .camada{animation:desliza-inv 6.8s 16.6s linear both}
+#c4 .pendente{top:420px}
+#c4 .veu{position:absolute;inset:0;background:linear-gradient(0deg,rgba(16,58,99,.94) 0%,rgba(16,58,99,.78) 26%,rgba(16,58,99,.25) 48%,rgba(16,58,99,0) 62%)}
+#c4 .texto{position:absolute;left:90px;right:90px;bottom:330px;color:var(--off)}
+#c4 .titulo{font-size:100px;animation:sobe .8s 17.4s}
+#c4 .titulo em{color:var(--claro)}
+#c4 .faixa{display:inline-flex;align-items:center;gap:18px;margin-top:40px;padding:14px 16px 14px 30px;border:2px solid var(--claro);border-radius:60px;
+  font:500 34px var(--sans);letter-spacing:.5px;animation:sobe .7s 18.4s}
+#c4 .faixa b{background:var(--off);color:var(--marinho);font-weight:600;border-radius:40px;padding:8px 22px;animation:escala .5s 18.9s}
+#c4 .onda{position:absolute;left:0;right:0;bottom:250px;width:100%;height:60px}
+#c4 .onda path{stroke:var(--claro);stroke-width:3;animation:desenha 1.6s 19.2s both var(--suav)}
+#c4 .logo-discreta{position:absolute;top:240px;left:90px;height:90px;opacity:0;display:none}
+.com-logo #c4 .logo-discreta{display:block;animation:entra .8s 18s both}
+
+/* ================= CENA 5 · pousada (23–30 s) ================= */
+#c5{animation:entra .45s 22.6s both ease-in-out}
+#c5 .midia{bottom:880px}
+#c5 .m-a .camada{animation:aproxima 2.2s 22.6s linear both}
+#c5 .m-b{animation:entra .5s 23.8s both ease-in-out}
+#c5 .m-b .camada{animation:aproxima 6.5s 23.8s linear both}
+#c5 .pendente{top:420px}
+#c5 .painel{height:960px}
+#c5 .fase{position:absolute;left:90px;right:90px;top:110px}
+#c5 .fase-a{animation:some .4s 26.6s forwards}
+#c5 .fase-a .titulo{font-size:84px;animation:sobe .8s 23.3s}
+#c5 .fase-a .apoio{margin-top:34px;animation:sobe .7s 24.7s}
+#c5 .fase-b{text-align:center;top:80px}
+#c5 .logo{height:200px;display:flex;align-items:center;justify-content:center;animation:escala .8s 27.0s}
+#c5 .logo img{max-height:200px;max-width:560px;display:none}
+.com-logo #c5 .logo img{display:block}
+.com-logo #c5 .logo .falta-logo{display:none}
+.falta-logo{width:520px;height:180px;border:2px dashed var(--claro);border-radius:18px;display:grid;place-content:center;font:600 24px/1.5 var(--sans);letter-spacing:3px;color:var(--oceano)}
+#c5 .slogan{font:italic 500 56px var(--serif);color:var(--oceano);margin-top:34px;animation:sobe .7s 27.6s}
+#c5 .perfil{font:600 38px var(--sans);color:var(--marinho);margin-top:30px;animation:sobe .6s 28.0s}
+#c5 .cta{display:inline-flex;align-items:center;gap:14px;margin-top:22px;font:500 32px var(--sans);color:var(--oceano);animation:sobe .6s 28.3s}
+#c5 .cta svg{width:26px;height:34px}
+#c5 .final{position:absolute;inset:0;bottom:880px;background:var(--off);opacity:0;animation:entra .5s 29.5s both ease-in-out}
+</style></head><body>
+
+<!-- CENA 1 · GANCHO -->
+<section class="cena" id="c1">
+  <div class="midia" data-midia="cena1"><div class="camada"></div>
+    <div class="pendente"><b>FOTO PENDENTE · cena1</b>Vista panorâmica da Praia do Peró, com areia clara e mar azul</div></div>
+  <div class="veu"></div>
+  <div class="texto">
+    <div class="titulo t1 a">Você sabe o que significa</div>
+    <div class="titulo t2 a">uma praia ter<br><em>Bandeira Azul?</em>
+      <svg class="sublinha" viewBox="0 0 620 40" preserveAspectRatio="none"><path class="traco" pathLength="1" d="M4 22 C80 6 150 36 230 20 S380 6 460 20 S580 32 616 16"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- CENA 2 · REVELAÇÃO -->
+<section class="cena" id="c2">
+  <div class="midia" data-midia="cena2"><div class="camada"></div>
+    <div class="pendente"><b>FOTO PENDENTE · cena2</b>Outro enquadramento do Peró: ondas chegando à areia</div></div>
+  <div class="painel">
+    <svg class="borda" viewBox="0 0 1080 120" preserveAspectRatio="none"><path fill="#FAF7F1" d="M0 70 C180 10 360 10 540 60 S900 120 1080 40 V120 H0 Z"/></svg>
+    <svg class="bandeira a" viewBox="0 0 120 160">
+      <rect x="4" y="0" width="5" height="160" rx="2.5" fill="#103A63"/>
+      <path class="pano" fill="#147CAD" d="M8 4 C26 -2 44 10 62 4 C80 -2 98 8 112 4 L112 64 C98 68 80 58 62 64 C44 70 26 58 8 64 Z"/>
+    </svg>
+    <div class="conteudo">
+      <div class="titulo l1 a">Mais que beleza.</div>
+      <div class="titulo l2 a">Reconhecimento<br><em>internacional.</em></div>
+      <svg class="linha" viewBox="0 0 360 30" preserveAspectRatio="none"><path class="traco" pathLength="1" d="M2 16 C60 2 110 28 180 15 S300 4 358 14"/></svg>
+      <div class="selo a">
+        <svg viewBox="0 0 46 56"><rect x="2" y="0" width="3" height="56" rx="1.5" fill="#103A63"/><path fill="#147CAD" d="M5 3 C15 0 25 7 35 3 C40 1 43 3 44 3 V27 C40 29 36 25 30 27 C20 31 12 25 5 27 Z"/></svg>
+        <span class="sobrelinha">Certificação Bandeira Azul</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CENA 3 · O QUE A CERTIFICAÇÃO AVALIA -->
+<section class="cena" id="c3">
+  <div class="midia" data-midia="cena3"><div class="camada"></div>
+    <div class="pendente"><b>VÍDEO PENDENTE · cena3</b>Mar em movimento, suave (fundo claro)</div></div>
+  <div class="veu"></div>
+  <div class="topo">
+    <div class="sobrelinha a">O que é avaliado</div>
+    <div class="titulo a">Alguns dos critérios<br><em>da certificação</em></div>
+  </div>
+  <div class="grade">
+    <div class="item">
+      <div class="icone a"><svg viewBox="0 0 64 64">
+        <path class="traco" pathLength="1" d="M32 8 C32 8 14 30 14 40 A18 18 0 0 0 50 40 C50 30 32 8 32 8 Z"/>
+        <path class="traco" pathLength="1" d="M22 42 Q27 38 32 42 T42 42"/></svg></div>
+      <div class="rotulo">Qualidade<br>da água</div>
+    </div>
+    <div class="item">
+      <div class="icone a"><svg viewBox="0 0 64 64">
+        <path class="traco" pathLength="1" d="M14 50 C14 26 30 14 52 12 C50 36 38 50 14 50 Z"/>
+        <path class="traco" pathLength="1" d="M14 50 L40 26"/></svg></div>
+      <div class="rotulo">Gestão<br>ambiental</div>
+    </div>
+    <div class="item">
+      <div class="icone a"><svg viewBox="0 0 64 64">
+        <path class="traco" pathLength="1" d="M32 18 C26 14 18 13 10 14 V48 C18 47 26 48 32 52 C38 48 46 47 54 48 V14 C46 13 38 14 32 18 Z"/>
+        <path class="traco" pathLength="1" d="M32 18 V52"/></svg></div>
+      <div class="rotulo">Educação<br>ambiental</div>
+    </div>
+    <div class="item">
+      <div class="icone a"><svg viewBox="0 0 64 64">
+        <path class="traco" pathLength="1" d="M32 8 L52 16 V30 C52 44 43 53 32 57 C21 53 12 44 12 30 V16 Z"/>
+        <path class="traco" pathLength="1" d="M23 32 L30 39 L42 26"/></svg></div>
+      <div class="rotulo">Segurança<br>e serviços</div>
+    </div>
+  </div>
+  <div class="nota a">e outros critérios de sustentabilidade</div>
+</section>
+
+<!-- CENA 4 · PRAIA DO PERÓ -->
+<section class="cena" id="c4">
+  <div class="midia" data-midia="cena4"><div class="camada"></div>
+    <div class="pendente"><b>FOTO PENDENTE · cena4</b>Peró com água azul, faixa de areia e restinga preservada</div></div>
+  <div class="veu"></div>
+  <img class="logo-discreta" data-logo alt="">
+  <div class="texto">
+    <div class="titulo a">E a Praia do Peró<br>faz parte <em>dessa<br>história!</em></div>
+    <div class="faixa a">Bandeira Azul • Temporada <b class="a">2026/2027</b></div>
+  </div>
+  <svg class="onda" viewBox="0 0 1080 60" preserveAspectRatio="none"><path class="traco" pathLength="1" d="M0 30 C90 10 180 50 270 30 S450 10 540 30 S720 50 810 30 S990 10 1080 30"/></svg>
+</section>
+
+<!-- CENA 5 · POUSADA -->
+<section class="cena" id="c5">
+  <div class="midia m-a" data-midia="cena5a"><div class="camada"></div>
+    <div class="pendente"><b>FOTO PENDENTE · cena5a</b>Outra paisagem do Peró / Cabo Frio (diferente das anteriores)</div></div>
+  <div class="midia m-b" data-midia="cena5b"><div class="camada" style="background:linear-gradient(165deg,#E0F0F8,#9ACBE6 60%,#147CAD)"></div>
+    <div class="pendente"><b>FOTO PENDENTE · cena5b</b>Fachada real da Areias do Peró</div></div>
+  <div class="final"></div>
+  <div class="painel">
+    <svg class="borda" viewBox="0 0 1080 120" preserveAspectRatio="none"><path fill="#FAF7F1" d="M0 50 C200 120 380 110 560 60 S880 10 1080 70 V120 H0 Z"/></svg>
+    <div class="fase fase-a">
+      <div class="titulo a">Tem tanta coisa linda<br>para descobrir <em>por aqui!</em></div>
+      <div class="apoio a">E a Areias do Peró te espera para viver dias especiais em Cabo Frio.</div>
+    </div>
+    <div class="fase fase-b">
+      <div class="logo a"><img data-logo alt="Areias do Peró"><div class="falta-logo">LOGO OFICIAL<br>arquivo pendente</div></div>
+      <div class="slogan a">Perto da praia. Perto de bons momentos.</div>
+      <div class="perfil a">@areiasdoperooficial</div><br>
+      <div class="cta a"><svg viewBox="0 0 26 34"><path d="M3 2 H23 V31 L13 23 L3 31 Z" fill="none" stroke="#147CAD" stroke-width="2.4" stroke-linejoin="round"/></svg>Salve para sua próxima viagem!</div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Procura cada mídia na pasta "midia": vídeo (.webm) primeiro, depois foto. Se nada existir, o aviso de pendente continua na tela.
+const tenta = (src, tipo) => new Promise(ok => {
+  const el = document.createElement(tipo);
+  if (tipo === 'video') { el.muted = true; el.preload = 'auto'; el.onloadeddata = () => ok(el); }
+  else el.onload = () => ok(el);
+  el.onerror = () => ok(null);
+  el.src = src;
+});
+async function carrega(slot) {
+  const nome = 'midia/' + slot.dataset.midia;
+  const inicio = parseFloat(getComputedStyle(slot.closest('.cena')).animationDelay) || 0;
+  const video = await tenta(nome + '.webm', 'video');
+  if (video) { video.dataset.inicio = inicio; slot.querySelector('.camada').replaceChildren(video); slot.classList.add('carregada'); return; }
+  for (const ext of ['jpg', 'jpeg', 'png', 'webp']) {
+    if (await tenta(nome + '.' + ext, 'img')) {
+      slot.querySelector('.camada').style.background = `url(${nome}.${ext}) center/cover`;
+      slot.classList.add('carregada'); return;
+    }
+  }
+}
+async function logo() {
+  for (const ext of ['png', 'svg', 'webp']) {
+    if (await tenta('midia/logo.' + ext, 'img')) {
+      document.querySelectorAll('[data-logo]').forEach(i => i.src = 'midia/logo.' + ext);
+      document.documentElement.classList.add('com-logo'); return;
+    }
+  }
+}
+window.__pronto = Promise.all([...document.querySelectorAll('[data-midia]')].map(carrega).concat(logo()));
+window.__irPara = async ms => {
+  document.getAnimations().forEach(a => { a.pause(); a.currentTime = ms; });
+  await Promise.all([...document.querySelectorAll('video')].map(v => {
+    const t = Math.min(Math.max(0, ms / 1000 - Number(v.dataset.inicio)), v.duration - 0.05);
+    if (Math.abs(v.currentTime - t) < 0.001) return;
+    return new Promise(ok => { v.addEventListener('seeked', ok, { once: true }); v.currentTime = t; });
+  }));
+  // espera a tela redesenhar antes do print, senão o quadro sai com o estado anterior
+  await new Promise(ok => requestAnimationFrame(() => requestAnimationFrame(ok)));
+};
+</script>
+</body></html>

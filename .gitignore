@@ -1,2 +1,4 @@
 criativos/node_modules
 criativos/.quadros-*
+.quadros-*
+criativos/**/midia/*.webm
