@@ -2,3 +2,5 @@ criativos/node_modules
 criativos/.quadros-*
 .quadros-*
 criativos/**/midia/*.webm
+criativos/**/midia/*.mp4
+criativos/**/midia/*.mov

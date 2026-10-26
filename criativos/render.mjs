@@ -29,7 +29,7 @@ mkdirSync(quadros);
 
 const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
 const page = await browser.newPage({ viewport: { width: 1080, height: 1920 } });
-await page.goto('file://' + arquivo, { waitUntil: 'networkidle' });
+await page.goto('file://' + arquivo, { waitUntil: 'load' });
 await page.evaluate(() => document.fonts.ready);
 await page.evaluate(() => window.__pronto);
 const duracao = Number(process.argv[3]) || await page.evaluate(() => Number(document.documentElement.dataset.duracao)) || 14;
